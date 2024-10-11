@@ -27,6 +27,7 @@ istant_variable = np.tile(initial_conditions, (len(epsilon), 1))
 derivatives = np.zeros(3)
 # Definition of the variables for the ensemble study
 total_steps_ensemble = int(end_ensemble_time/time_step)
+random.seed(42) 
 epsilon_ensemble = [random.uniform(distribution_inf, distribution_sup) for i in range(N_ensemble)]
 X_ensemble_storage = np.zeros([N_ensemble, total_steps_ensemble])
 variance_ensemble_storage = np.zeros([N_ensemble, total_steps_ensemble])
