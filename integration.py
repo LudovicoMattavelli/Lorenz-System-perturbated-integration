@@ -1,6 +1,7 @@
 import numpy as np
 import lorenz as lorenz
 import random
+import plot
 
 #Parameters to define the probem
 system_parameters = [10,8/3,28]
@@ -71,7 +72,6 @@ for i in range (total_steps):
             variance_ensemble_storage[j,i] = np.power((X_storage[0,i] - X_ensemble_storage[j,i]), 2)
         average_mse_ensemble[i] = np.mean(variance_ensemble_storage[:,i])
      
-
-# Computation of the MSE of the average ensemble
-average_ensemble = np.mean(X_ensemble_storage, axis=0)
-mse_of_the_average_ensemble = np.power((X_storage[0, :total_steps_ensemble] - average_ensemble), 2)
+plot.plot_X(X_storage, end_time, total_steps)
+plot.plot_rmse(variance_storage, end_time, total_steps)
+plot.plot_rmse_e(X_ensemble_storage, X_storage, average_mse_ensemble, end_ensemble_time, total_steps_ensemble)
