@@ -3,17 +3,11 @@ import lorenz as lorenz
 import random
 import plot
 
-#Parameters to define the probem
-system_parameters = [10,8/3,28]
-time_step = 0.005
-end_time = 60
-initial_conditions = np.array([9, 10, 18], dtype='float')
-epsilon = np.array([0, 1E-07, 1E-05, 1E-03, 1E-01])
-N_ensemble = 100
-# To show the ensemble properties it is sufficient to consider a smaller time of integration
-end_ensemble_time = 4 
-distribution_inf = -0.75
-distribution_sup = 0.75
+# Open the file with the values of the parameters to define the problem
+with open('parameters.txt', 'r') as file:
+    file_content = file.read()
+# Execute the content of the file
+exec(file_content)
 
 # Definition of the variables for the if conditions 
 presence_of_perturbation = np.full(len(epsilon), True)
