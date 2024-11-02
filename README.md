@@ -1,6 +1,7 @@
 # The Lorenz system
 The Lorenz system is a set of differential ordinary equations that describe the behave
 of a forced dissipative hydrodynamic flow. 
+![equation1](https://latex.codecogs.com/gif.latex?\begin{cases} \dot{x}=\sigma(y-x) \\ \dot{y}=rx-xz-y \\ \dot{z}=xy-bz \\ \end{cases})
 
 The equations are characterized by three parameters, (σ, b, r), and taking the right values, it results in chaotic solution for the system.
 It is important to study the Lorentz system since it is a good example of chaos theory,
