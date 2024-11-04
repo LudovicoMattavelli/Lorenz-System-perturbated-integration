@@ -1,4 +1,4 @@
-#Parameters to define the probem
+# Parameters to define the probem
 system_parameters = [10,8/3,28]
 time_step = 0.005
 end_time = 60

@@ -6,12 +6,15 @@ def lorenz_system(variables, system_parameters):
     
     Parameters
     ----------
-    variables : state of the system at the given time step.
-    system_parameters: parameters of the system. 
+    variables : 1-dimensional NumPy array of length 3
+        State of the system at the given time step.
+    system_parameters: 1-dimensional list of length 3
+        Parameters of the system. 
         
     Returns
     -------
-    derivatives : derivative of the state of the system at the given time step.
+    derivatives : 1-dimensional NumPy array of length 3
+        Derivative of the state of the system at the given time step.
     """
     derivatives = np.empty(3)
     derivatives[0] = system_parameters[0]*(variables[1] - variables[0])
