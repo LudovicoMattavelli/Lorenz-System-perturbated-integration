@@ -53,7 +53,6 @@ def test_lorenz_output_shape():
     variables to check that, for any values of the elements of variables, the
     solution has the correct shape.
     """
-    # Select a random set for varibales to check any values of the elements of variables
     random.seed(42)
     variables = np.empty(3)
     for i in range(3):
