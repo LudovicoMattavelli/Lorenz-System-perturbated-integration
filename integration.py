@@ -61,8 +61,16 @@ for i in range (total_steps):
             X_ensemble_storage[j,i] = istant_ensemble_variable[j,0]
             variance_ensemble_storage[j,i] = np.power((X_storage[0,i] - X_ensemble_storage[j,i]), 2)
         average_mse_ensemble[i] = np.mean(variance_ensemble_storage[:,i])
+print("End integration.")
         
+# Calculate the mean squared error (mse) of the ensemble average
+average_ensemble = np.mean(X_ensemble_storage, axis=0)
+mse_of_the_average_ensemble = np.power((X_storage[0, :total_steps_ensemble] - average_ensemble), 2) 
+# Calculate the two RMSE values for the ensemble
+average_rmse_ensemble = np.sqrt(average_mse_ensemble)
+rmse_of_the_average_ensemble = np.sqrt(mse_of_the_average_ensemble)
+
 # Call the plot functions
 plot.plot_X(X_storage, end_time, total_steps)
 plot.plot_rmse(variance_storage, end_time, total_steps)
-plot.plot_rmse_e(X_ensemble_storage, X_storage, average_mse_ensemble, end_ensemble_time, total_steps_ensemble)
+plot.plot_rmse_e(average_rmse_ensemble, rmse_of_the_average_ensemble, end_ensemble_time, total_steps_ensemble)
