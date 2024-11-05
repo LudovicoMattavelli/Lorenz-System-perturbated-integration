@@ -68,29 +68,21 @@ def plot_rmse(variance_storage, end_time, total_steps):
     plt.savefig('images/Fig_RMSE_time_series.png')
     print('Fig_RMSE_time_series saved in the directory "images"')
 
-def plot_rmse_e(X_ensemble_storage, X_storage, average_mse_ensemble, end_ensemble_time, total_steps_ensemble):
+def plot_rmse_e(average_rmse_ensemble, rmse_of_the_average_ensemble, end_ensemble_time, total_steps_ensemble):
     """This method plots the RMSE time series for the ensemble time series and the RMSE of 
     the ensemble average.
     
     Parameters
     ----------
-    X_ensemble_storage : 3-dimensional NumPy array
-        Array containing the ensemble time series data.
-    X_storage : 2-dimensional NumPy array
-        Array containing the time series data for the unperturbed solution.
-    average_mse_ensemble : 1-dimensional NumPy array
-        Array containing the mean squared error of the ensemble time series.
+    average_rmse_ensemble : 1-dimensional NumPy array
+        Array containing the average root mean squared error of the memebers of the ensemble time series.
+    rmse_of_the_average_ensemble: 1-dimensional NumPy array
+        Array containing the root mean squared error of the average of the ensemble time series.
     end_ensemble_time : float
         The final time value of the ensemble time series.
     total_steps_ensemble : int
         The number of steps in the ensemble time series.
     """
-    # Calculate the mean squared error (mse) of the ensemble average
-    average_ensemble = np.mean(X_ensemble_storage, axis=0)
-    mse_of_the_average_ensemble = np.power((X_storage[0, :total_steps_ensemble] - average_ensemble), 2) 
-    # Calculate the two RMSE values to be plotted
-    average_rmse_ensemble = np.sqrt(average_mse_ensemble)
-    rmse_of_the_average_ensemble = np.sqrt(mse_of_the_average_ensemble)
     # Generate the time array
     time_ensemble = np.linspace(0, end_ensemble_time, total_steps_ensemble)
     
